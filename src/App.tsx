@@ -1,13 +1,18 @@
 import Button from "./components/shared/Button";
+import SubtaskCheckbox from "./components/shared/formfields/SubtaskCheckbox";
 import Heading from "./components/shared/typography/Heading";
 import Paragraph from "./components/shared/typography/Paragraph";
 import { useTheme } from "./context/ThemeContext";
+import { useState } from "react";
 
 function App() {
   const { toggleTheme } = useTheme();
+  const [task1, setTask1] = useState(false);
+  const [task2, setTask2] = useState(true);
+  const [task3, setTask3] = useState(false);
 
   return (
-    <div className="space-y-8 min-h-screen dark:bg-black-2 dark:text-white">
+    <div className="space-y-8 min-h-screen dark:bg-black-3 dark:text-white">
       <h1 className="text-center">KanBan</h1>
       <hr />
       <Button text="Dark/Light" onClick={toggleTheme} />
@@ -43,6 +48,13 @@ function App() {
         <Button text="Button Primary (S)" variant="primary" size="sm" />
         <Button text="Button Secondary" variant="secondary" />
         <Button text="Button Destructive" variant="destructive" />
+        <SubtaskCheckbox task="Idle" checked={task1} onClick={() => setTask1(prev => !prev)} />
+        <SubtaskCheckbox task="Completed" checked={task2} onClick={() => setTask2(prev => !prev)} />
+        <SubtaskCheckbox 
+          task="Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui est tenetur exercitationem magni, temporibus dolor voluptatem beatae et quae, natus nesciunt nemo accusantium aut facilis repudiandae excepturi doloremque quaerat suscipit." 
+          checked={task3} 
+          onClick={() => setTask3(prev => !prev)} 
+        />
       </div>
     </div>
   )
