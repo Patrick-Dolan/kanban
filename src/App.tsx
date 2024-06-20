@@ -1,8 +1,6 @@
 function App() {
   return (
-    <>
-      <h1>App component</h1>
-    </>
+    <h1 className="text-center">KanBan</h1>
   )
 }
 
