@@ -10,6 +10,7 @@ export default {
         sans: ['"Plus Jakarta Sans"', 'sans-serif'],
       },
       fontSize: {
+        '13px': '.8125rem', // 13px @ 16px
         '15px': '.938rem',
       },
       lineHeight: {
