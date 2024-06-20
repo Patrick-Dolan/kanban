@@ -14,7 +14,7 @@ function Button({ text, size = "lg", type = "button", variant = "primary", onCli
       variantClasses = "text-white bg-primary hover:bg-primary-light";
       break;
     case "secondary":
-      variantClasses = "text-primary bg-primary bg-opacity-10 hover:bg-opacity-25";
+      variantClasses = "text-primary bg-primary bg-opacity-10 hover:bg-opacity-25 dark:bg-white";
       break;
     case "destructive":
       variantClasses = "text-white bg-secondary hover:bg-secondary-light";
