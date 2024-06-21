@@ -1,11 +1,19 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
-const ThemeContext = createContext(
-  { toggleTheme: () => {} }
-);
+type ThemeContextType = {
+  currentTheme: "dark" | "light";
+  toggleTheme: () => void;
+};
+
+const defaultContextValue: ThemeContextType = {
+  currentTheme: "dark",
+  toggleTheme: () => {}, 
+};
+
+const ThemeContext = createContext<ThemeContextType>(defaultContextValue);
 
 export function ThemeContextProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [currentTheme, setTheme] = useState<"dark" | "light">("dark");
 
   useEffect(() => {
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -16,20 +24,20 @@ export function ThemeContextProvider({ children }: { children: React.ReactNode }
   }, []);
 
   useEffect(() => {
-    const root = document.documentElement;
-    if (theme === "dark") {
+    const root = document.getElementById("root")!;
+    if (currentTheme === "dark") {
       root.classList.add("dark");
     } else {
       root.classList.remove("dark");
     }
-  }, [theme]);
+  }, [currentTheme]);
 
   function toggleTheme() {
     setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
   }
 
   return (
-    <ThemeContext.Provider value={{ toggleTheme }}>
+    <ThemeContext.Provider value={{ currentTheme: currentTheme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   )
