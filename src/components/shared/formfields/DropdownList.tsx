@@ -1,11 +1,12 @@
 import { useState } from "react";
 
 interface DropdownListProps {
+  label?: string;
   selectedOption?: string;
   handleDropdownStateChange: (option: string) => void;
 }
 
-function DropdownList({ selectedOption = "Todo", handleDropdownStateChange }: DropdownListProps) {
+function DropdownList({ label, selectedOption = "Todo", handleDropdownStateChange }: DropdownListProps) {
   const options = ["Todo", "Doing", "Done"];
   const [showOptions, setShowOptions] = useState(false);
 
@@ -16,6 +17,7 @@ function DropdownList({ selectedOption = "Todo", handleDropdownStateChange }: Dr
 
   return (
     <div className="relative">
+      {label && <p className="mb-2 font-bold text-gray text-xs dark:text-white">{label}</p>}
       <div 
         className={`relative flex justify-between items-center py-2 px-4 mb-2 rounded-md border border-gray border-opacity-25 font-medium text-13px leading-5.75 hover:cursor-pointer hover:border-primary ${showOptions && "border-primary border-opacity-100"}`}
         onClick={() => setShowOptions(prev => !prev)}

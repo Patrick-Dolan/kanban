@@ -87,7 +87,7 @@ function App() {
           onChange={(e) => handleInputFieldTest(e.target.value)} 
         />
         <DropdownList handleDropdownStateChange={() => {}} />
-        <DropdownList selectedOption={selectedOption} handleDropdownStateChange={setSelectedOption}/>
+        <DropdownList label="Status" selectedOption={selectedOption} handleDropdownStateChange={setSelectedOption}/>
       </div>
     </div>
   )
