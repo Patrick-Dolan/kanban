@@ -1,14 +1,13 @@
 import Button from "./components/shared/Button";
+import ThemeToggle from "./components/shared/ThemeToggle";
 import DropdownList from "./components/shared/formfields/DropdownList";
 import InputField from "./components/shared/formfields/InputField";
 import SubtaskCheckbox from "./components/shared/formfields/SubtaskCheckbox";
 import Heading from "./components/shared/typography/Heading";
 import Paragraph from "./components/shared/typography/Paragraph";
-import { useTheme } from "./context/ThemeContext";
 import { useState } from "react";
 
 function App() {
-  const { toggleTheme } = useTheme();
   const [task1, setTask1] = useState(false);
   const [task2, setTask2] = useState(true);
   const [task3, setTask3] = useState(false);
@@ -28,10 +27,10 @@ function App() {
   }
 
   return (
-    <div className="space-y-8 min-h-screen dark:bg-black-3 dark:text-white px-6 py-20">
+    <div className="space-y-8 min-h-screen dark:bg-black-3 dark:text-white px-6 py-20 transition-colors duration-1000">
       <h1 className="text-center">KanBan</h1>
       <hr />
-      <Button text="Dark/Light" onClick={toggleTheme} />
+      <ThemeToggle />
       <div className="space-y-4">
         <h2>Colors:</h2>
         <div className="flex">
