@@ -1,4 +1,5 @@
 import Button from "./components/shared/Button";
+import InputField from "./components/shared/formfields/InputField";
 import SubtaskCheckbox from "./components/shared/formfields/SubtaskCheckbox";
 import Heading from "./components/shared/typography/Heading";
 import Paragraph from "./components/shared/typography/Paragraph";
@@ -10,9 +11,22 @@ function App() {
   const [task1, setTask1] = useState(false);
   const [task2, setTask2] = useState(true);
   const [task3, setTask3] = useState(false);
+  const [inputFieldTest1, setInputFieldTest1] = useState("");
+  const [inputFieldTest2, setInputFieldTest2] = useState("");
+  const [testError, setTestError] = useState<string | null>(null);
+
+  const handleInputFieldTest = (value: string) => {
+    if (value.length < 1) {
+      setTestError("Can't be empty");
+      setInputFieldTest2(value);
+    } else {
+      setTestError(null);
+      setInputFieldTest2(value);
+    }
+  }
 
   return (
-    <div className="space-y-8 min-h-screen dark:bg-black-3 dark:text-white">
+    <div className="space-y-8 min-h-screen dark:bg-black-3 dark:text-white px-6 py-20">
       <h1 className="text-center">KanBan</h1>
       <hr />
       <Button text="Dark/Light" onClick={toggleTheme} />
@@ -54,6 +68,21 @@ function App() {
           task="Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui est tenetur exercitationem magni, temporibus dolor voluptatem beatae et quae, natus nesciunt nemo accusantium aut facilis repudiandae excepturi doloremque quaerat suscipit." 
           checked={task3} 
           onClick={() => setTask3(prev => !prev)} 
+        />
+        <InputField 
+          label="Task" 
+          placeholder="Enter task" 
+          type="text" 
+          value={inputFieldTest1} 
+          onChange={(e) => setInputFieldTest1(e.target.value)} 
+        />
+        <InputField 
+          label="Task with error handling" 
+          placeholder="Enter task" 
+          type="text" 
+          value={inputFieldTest2} 
+          errorMessage={testError}
+          onChange={(e) => handleInputFieldTest(e.target.value)} 
         />
       </div>
     </div>
