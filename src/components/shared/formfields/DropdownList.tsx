@@ -17,7 +17,7 @@ function DropdownList({ selectedOption = "Todo", handleDropdownStateChange }: Dr
   return (
     <div className="relative">
       <div 
-        className={`relative flex justify-between items-center py-2 px-4 mb-2 rounded-md border border-gray border-opacity-25 font-medium text-13px leading-5.75 hover:cursor-pointer ${showOptions && "border-primary border-opacity-100"}`}
+        className={`relative flex justify-between items-center py-2 px-4 mb-2 rounded-md border border-gray border-opacity-25 font-medium text-13px leading-5.75 hover:cursor-pointer hover:border-primary ${showOptions && "border-primary border-opacity-100"}`}
         onClick={() => setShowOptions(prev => !prev)}
       >
         <p>{selectedOption}</p>
