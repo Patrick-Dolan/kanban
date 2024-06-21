@@ -10,7 +10,7 @@ interface InputFieldProps {
 function InputField({ label, placeholder, type, value, errorMessage, onChange }: InputFieldProps) {
   return (
     <div className="space-y-2">
-      <label htmlFor={label} className="font-bold">{label}</label>
+      <label htmlFor={label} className="font-bold text-gray text-xs dark:text-white">{label}</label>
       <div className="relative flex items-center">
         <input
           id={label}
