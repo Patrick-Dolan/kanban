@@ -1,4 +1,5 @@
 import Button from "./components/shared/Button";
+import DropdownList from "./components/shared/formfields/DropdownList";
 import InputField from "./components/shared/formfields/InputField";
 import SubtaskCheckbox from "./components/shared/formfields/SubtaskCheckbox";
 import Heading from "./components/shared/typography/Heading";
@@ -14,6 +15,7 @@ function App() {
   const [inputFieldTest1, setInputFieldTest1] = useState("");
   const [inputFieldTest2, setInputFieldTest2] = useState("");
   const [testError, setTestError] = useState<string | null>(null);
+  const [selectedOption, setSelectedOption] = useState("Todo");
 
   const handleInputFieldTest = (value: string) => {
     if (value.length < 1) {
@@ -84,6 +86,8 @@ function App() {
           errorMessage={testError}
           onChange={(e) => handleInputFieldTest(e.target.value)} 
         />
+        <DropdownList handleDropdownStateChange={() => {}} />
+        <DropdownList selectedOption={selectedOption} handleDropdownStateChange={setSelectedOption}/>
       </div>
     </div>
   )
