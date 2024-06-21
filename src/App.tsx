@@ -62,7 +62,8 @@ function App() {
         <Button text="Button Primary (L)" variant="primary" size="lg" />
         <Button text="Button Primary (S)" variant="primary" size="sm" />
         <Button text="Button Secondary" variant="secondary" />
-        <Button text="Button Destructive" variant="destructive" />
+        <Button text="Button Destructive" onClick={() => alert("Clicked")} variant="destructive" />
+        <Button text="Button Destructive" onClick={() => alert("Clicked")} variant="destructive" disabled={true} />
         <SubtaskCheckbox task="Idle" checked={task1} onClick={() => setTask1(prev => !prev)} />
         <SubtaskCheckbox task="Completed" checked={task2} onClick={() => setTask2(prev => !prev)} />
         <SubtaskCheckbox 

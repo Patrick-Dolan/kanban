@@ -4,10 +4,11 @@ interface ButtonProps {
   size?: "lg" | "sm";
   type?: "button" | "submit";
   variant?: "primary" | "secondary" | "destructive";
+  disabled?: boolean;
   onClick?: () => void;
 }
 
-function Button({ text, size = "lg", type = "button", variant = "primary", onClick }: ButtonProps) {
+function Button({ text, size = "lg", type = "button", variant = "primary", disabled, onClick }: ButtonProps) {
   let variantClasses = "";
   switch (variant) {
     case "primary":
@@ -40,7 +41,8 @@ function Button({ text, size = "lg", type = "button", variant = "primary", onCli
   return (
     <button
       type={type}
-      className={`flex items-center font-bold rounded-full ${sizeClasses} ${variantClasses}`}
+      disabled={disabled}
+      className={`flex items-center font-bold rounded-full ${sizeClasses} ${variantClasses} ${disabled && "opacity-25 cursor-not-allowed"}`}
       onClick={onClick}
     >
       {text}
