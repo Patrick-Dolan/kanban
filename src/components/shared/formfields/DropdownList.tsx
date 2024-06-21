@@ -23,7 +23,7 @@ function DropdownList({ label, selectedOption = "Todo", handleDropdownStateChang
         onClick={() => setShowOptions(prev => !prev)}
       >
         <p>{selectedOption}</p>
-        <img src="/public/assets/icon-chevron-down.svg" alt="" />
+        <img src="/assets/icon-chevron-down.svg" alt="" />
       </div>
       {showOptions &&
         <div className="absolute w-full z-10 rounded-lg p-4 space-y-2 bg-white dark:bg-black-2">
