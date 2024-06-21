@@ -18,7 +18,7 @@ function InputField({ label, placeholder, type, value, errorMessage, onChange }:
           placeholder={placeholder}
           value={value}
           onChange={onChange}
-          className={`py-2 px-4 w-full rounded-md border border-gray border-opacity-25 font-medium text-13px leading-5.75 dark:bg-black-3 dark:text-white placeholder:opacity-25 ${errorMessage && "border-secondary border-opacity-100"}`}
+          className={`py-2 px-4 w-full rounded-md border border-gray border-opacity-25 font-medium text-13px leading-5.75 dark:bg-black-3 dark:text-white placeholder:opacity-25 hover:cursor-pointer hover:border-primary ${errorMessage && "border-secondary border-opacity-100"}`}
         />
         {errorMessage && 
           <div className="absolute flex items-center justify-center h-full right-4">
