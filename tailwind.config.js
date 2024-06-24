@@ -38,6 +38,7 @@ export default {
       },
       spacing: {
         '3.5': '0.875rem', // 14px @ 16px
+        '120': '30rem', // 480px @ 16px
       }
     },
     plugins: [],
