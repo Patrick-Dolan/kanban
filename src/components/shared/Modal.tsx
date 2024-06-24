@@ -20,7 +20,7 @@ function Modal({ children, open, setOpen } : ModalProps) {
       onClick={() => setOpen(false)}
     >
       <div 
-        className="bg-white mx-4 w-full max-h-[70vh] overflow-y-auto rounded-lg p-6"
+        className="bg-white mx-4 w-full max-h-[70vh] overflow-y-auto rounded-lg p-6 md:mx-0 md:max-w-120 dark:text-white dark:bg-black-3"
         onClick={(e) => e.stopPropagation()}
       >
         {children}
