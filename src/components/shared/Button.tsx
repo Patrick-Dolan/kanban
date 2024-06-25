@@ -5,10 +5,11 @@ interface ButtonProps {
   type?: "button" | "submit";
   variant?: "primary" | "secondary" | "destructive";
   disabled?: boolean;
+  icon?: React.ReactNode;
   onClick?: () => void;
 }
 
-function Button({ text, size = "lg", type = "button", variant = "primary", disabled, onClick }: ButtonProps) {
+function Button({ text, size = "lg", type = "button", variant = "primary", disabled, icon, onClick }: ButtonProps) {
   let variantClasses = "";
   switch (variant) {
     case "primary":
@@ -42,9 +43,10 @@ function Button({ text, size = "lg", type = "button", variant = "primary", disab
     <button
       type={type}
       disabled={disabled}
-      className={`flex items-center font-bold rounded-full ${sizeClasses} ${variantClasses} ${disabled && "opacity-25 cursor-not-allowed"}`}
+      className={`flex items-center gap-1 font-bold rounded-full ${sizeClasses} ${variantClasses} ${disabled && "opacity-25 cursor-not-allowed"}`}
       onClick={onClick}
     >
+      {icon}
       {text}
     </button>
   )
