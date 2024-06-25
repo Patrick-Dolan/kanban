@@ -13,7 +13,7 @@ function MobileHeader() {
   }
 
   const menuChevronImagePath = menuOpen ? "/assets/icon-chevron-up.svg" : "/assets/icon-chevron-down.svg";
-  const noBoardsAvailable = boards.length > 0;
+  const noBoardsAvailable = boards.length === 0;
 
   return (
     <>
