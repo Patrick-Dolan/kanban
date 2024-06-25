@@ -24,7 +24,6 @@ function ProjectSwitcher() {
                 key={project.id}
                 onClick={() => handleProjectSwitch(project.id)}
               >
-                {/* <img src="/assets/icon-board.svg" alt="Board icon." /> */}
                 <IconBoard fill={iconFill} />
                 <Heading text={project.name} size="md" className={`${selectedProject ? "text-white" : "text-gray"}`} />
               </li>
