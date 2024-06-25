@@ -1,9 +1,11 @@
-import ProjectSwitcher from "../projects/ProjectSwitcher";
+import { useBoardContext } from "../../context/BoardContext";
+import { useState } from "react";
+import BoardSwitcher from "../boards/BoardSwitcher";
 import ThemeToggle from "../shared/ThemeToggle";
 import Heading from "../shared/typography/Heading";
-import { useState } from "react";
 
 function MobileHeader() {
+  const { boards } = useBoardContext();
   const [menuOpen, setMenuOpen] = useState(false);
 
   function handleCloseMenu() {
@@ -11,12 +13,11 @@ function MobileHeader() {
   }
 
   const menuChevronImagePath = menuOpen ? "/assets/icon-chevron-up.svg" : "/assets/icon-chevron-down.svg";
-  // TODO replace with check for boards available in context
-  const noBoardsAvailable = true;
+  const noBoardsAvailable = boards.length > 0;
 
   return (
     <>
-      <div className="flex justify-between items-center h-16 px-6 bg-white dark:bg-black-3">
+      <div className="flex justify-between items-center h-16 px-4 bg-white dark:bg-black-3">
         <div className="flex items-center gap-4 cursor-pointer">
           <img src="/assets/logo-mobile.svg" alt="Mobile logo." />
           <div
@@ -52,7 +53,7 @@ function MobileHeader() {
             className="bg-white mt-4 mx-auto w-66 rounded-lg dark:bg-black-3"
             onClick={(e) => e.stopPropagation()}
           >
-            <ProjectSwitcher />
+            <BoardSwitcher />
             <div className="p-4">
               <ThemeToggle />
             </div>
