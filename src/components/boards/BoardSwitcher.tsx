@@ -1,28 +1,27 @@
-import { useState } from "react";
 import IconBoard from "../../assets/IconBoard";
 import Heading from "../shared/typography/Heading";
+import { useBoardContext } from "../../context/BoardContext";
 
-function ProjectSwitcher() {
-  const projects = [{name: "Platform Launch", id:1}, {name: "Marketing Plan", id:2}, {name: "Roadmap", id:3}];
-  const [currentProjectId, setCurrentProjectId] = useState(1);
+function BoardSwitcher() {
+  const { boards, currentBoard, switchCurrentBoard } = useBoardContext();
 
-  function handleProjectSwitch(projectId: number) {
-    setCurrentProjectId(projectId);
+  function handleBoardSwitch(projectName: string) {
+    switchCurrentBoard(projectName);
   }
 
   return (
     <div>
-      <p className="font-bold uppercase text-gray text-xs pt-4 mb-5 mx-6 tracking-2.4px">All boards ({projects.length})</p>
+      <p className="font-bold uppercase text-gray text-xs pt-4 mb-5 mx-6 tracking-2.4px">All boards ({boards.length})</p>
       <div className="mr-6">
         <ul>
-          {projects.map((project) => {
-            const iconFill = currentProjectId === project.id ? "#FFF" : "#828FA3";
-            const selectedProject = currentProjectId === project.id;
+          {boards.map((project) => {
+            const iconFill = currentBoard.name === project.name ? "#FFF" : "#828FA3";
+            const selectedProject = currentBoard.name === project.name;
             return (
               <li
                 className={`flex items-center gap-3 p-4 cursor-pointer ${selectedProject && "bg-primary rounded-r-full"}`}
-                key={project.id}
-                onClick={() => handleProjectSwitch(project.id)}
+                key={project.name}
+                onClick={() => handleBoardSwitch(project.name)}
               >
                 <IconBoard fill={iconFill} />
                 <Heading text={project.name} size="md" className={`${selectedProject ? "text-white" : "text-gray"}`} />
@@ -44,4 +43,4 @@ function ProjectSwitcher() {
   )
 }
 
-export default ProjectSwitcher;
+export default BoardSwitcher;
