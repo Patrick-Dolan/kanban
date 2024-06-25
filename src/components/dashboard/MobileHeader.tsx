@@ -25,7 +25,7 @@ function MobileHeader() {
             onClick={menuOpen ? handleCloseMenu : () => setMenuOpen(true)}
           >
             <Heading text="Platform Launch" size="lg" />
-            <img src={menuChevronImagePath} alt="Arrow down chevron icon." />
+            <img src={menuChevronImagePath} alt="Arrow chevron icon." />
           </div>
         </div>
         <div className="flex items-center gap-4">
