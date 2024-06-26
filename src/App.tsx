@@ -1,12 +1,14 @@
 import MobileHeader from "./components/dashboard/MobileHeader";
+import KanBanBoard from "./components/boards/KanBanBoard";
 
 function App() {
   return (
-    <div className="min-h-screen dark:bg-black-2 dark:text-white transition-colors duration-1000">
+    <div className="min-h-screen flex flex-col dark:bg-black-2 dark:text-white">
       <header>
         <MobileHeader />
       </header>
-      <main>
+      <main className="flex-grow bg-off-white dark:bg-black-2">
+        <KanBanBoard />
       </main>
     </div>
   )
