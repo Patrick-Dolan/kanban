@@ -1,5 +1,5 @@
-import MobileHeader from "./components/dashboard/MobileHeader";
-import KanBanBoard from "./components/boards/KanBanBoard";
+import MobileHeader from './components/dashboard/MobileHeader';
+import KanBanBoard from './components/boards/KanBanBoard';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
         <KanBanBoard />
       </main>
     </div>
-  )
+  );
 }
 
 export default App;

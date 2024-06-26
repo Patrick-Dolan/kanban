@@ -1,4 +1,4 @@
-import { useTheme } from "../../context/ThemeContext";
+import { useTheme } from '../../context/ThemeContext';
 
 function ThemeToggle() {
   const { toggleTheme } = useTheme();
@@ -16,7 +16,7 @@ function ThemeToggle() {
         <img src="/assets/icon-dark-theme.svg" alt="Dark theme icon." />
       </div>
     </div>
-  )
+  );
 }
 
 export default ThemeToggle;

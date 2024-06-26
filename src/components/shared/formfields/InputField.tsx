@@ -10,7 +10,9 @@ interface InputFieldProps {
 function InputField({ label, placeholder, type, value, errorMessage, onChange }: InputFieldProps) {
   return (
     <div className="space-y-2">
-      <label htmlFor={label} className="font-bold text-gray text-xs dark:text-white">{label}</label>
+      <label htmlFor={label} className="font-bold text-gray text-xs dark:text-white">
+        {label}
+      </label>
       <div className="relative flex items-center">
         <input
           id={label}
@@ -18,16 +20,16 @@ function InputField({ label, placeholder, type, value, errorMessage, onChange }:
           placeholder={placeholder}
           value={value}
           onChange={onChange}
-          className={`py-2 px-4 w-full rounded-md border border-gray border-opacity-25 font-medium text-13px leading-5.75 dark:bg-black-3 dark:text-white placeholder:opacity-25 hover:cursor-pointer hover:border-primary ${errorMessage && "border-secondary border-opacity-100"}`}
+          className={`py-2 px-4 w-full rounded-md border border-gray border-opacity-25 font-medium text-13px leading-5.75 dark:bg-black-3 dark:text-white placeholder:opacity-25 hover:cursor-pointer hover:border-primary ${errorMessage && 'border-secondary border-opacity-100'}`}
         />
-        {errorMessage && 
+        {errorMessage && (
           <div className="absolute flex items-center justify-center h-full right-4">
-          <p className="text-secondary leading-5.75 font-medium text-13px">{errorMessage}</p>
-        </div>
-        }
+            <p className="text-secondary leading-5.75 font-medium text-13px">{errorMessage}</p>
+          </div>
+        )}
       </div>
     </div>
-  )
+  );
 }
 
 export default InputField;

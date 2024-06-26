@@ -1,5 +1,5 @@
-import { ReactNode, createContext, useContext, useState } from "react";
-import data from "../data.json";
+import { ReactNode, createContext, useContext, useState } from 'react';
+import data from '../data.json';
 
 interface Subtask {
   title: string;
@@ -31,10 +31,10 @@ interface BoardContextType {
 
 const defaultContextValue: BoardContextType = {
   boards: data.boards,
-  currentBoard: data.boards[0] || { name: "Default Board", columns: [] },
+  currentBoard: data.boards[0] || { name: 'Default Board', columns: [] },
   switchCurrentBoard: () => {
-    console.error("switchCurrentBoard function is not implemented");
-  }
+    console.error('switchCurrentBoard function is not implemented');
+  },
 };
 
 const BoardContext = createContext<BoardContextType>(defaultContextValue);
@@ -44,14 +44,14 @@ export const BoardContextProvider = ({ children }: { children: ReactNode }) => {
   const [currentBoard, setCurrentBoard] = useState<Board>(defaultContextValue.currentBoard);
 
   // TODO remove console log when done testing context
-  console.log("currentBoard", currentBoard);
+  console.log('currentBoard', currentBoard);
 
   function switchCurrentBoard(boardName: string) {
     setCurrentBoard(boards.find((board) => board.name === boardName) || boards[0]);
   }
 
   return (
-    <BoardContext.Provider 
+    <BoardContext.Provider
       value={{
         boards,
         currentBoard,
@@ -67,7 +67,7 @@ export const BoardContextProvider = ({ children }: { children: ReactNode }) => {
 export function useBoardContext() {
   const context = useContext(BoardContext);
   if (!context) {
-    throw new Error("useBoardContext must be used within a BoardContextProvider");
+    throw new Error('useBoardContext must be used within a BoardContextProvider');
   }
   return context;
 }
