@@ -5,7 +5,7 @@ import ThemeToggle from "../shared/ThemeToggle";
 import Heading from "../shared/typography/Heading";
 
 function MobileHeader() {
-  const { boards } = useBoardContext();
+  const { currentBoard, boards } = useBoardContext();
   const [menuOpen, setMenuOpen] = useState(false);
 
   function handleCloseMenu() {
@@ -24,7 +24,7 @@ function MobileHeader() {
             className="flex gap-2 items-center"
             onClick={menuOpen ? handleCloseMenu : () => setMenuOpen(true)}
           >
-            <Heading text="Platform Launch" size="lg" />
+            <Heading text={currentBoard?.name || "Add New Board?" } size="lg" />
             <img src={menuChevronImagePath} alt="Arrow chevron icon." />
           </div>
         </div>
@@ -53,7 +53,9 @@ function MobileHeader() {
             className="bg-white mt-4 mx-auto w-66 rounded-lg dark:bg-black-3"
             onClick={(e) => e.stopPropagation()}
           >
-            <BoardSwitcher />
+            <BoardSwitcher 
+              closeMenu={handleCloseMenu}
+            />
             <div className="p-4">
               <ThemeToggle />
             </div>
