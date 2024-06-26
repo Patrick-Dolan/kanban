@@ -4,7 +4,7 @@ function ThemeToggle() {
   const { toggleTheme } = useTheme();
 
   return (
-    <div className="flex items-center justify-center bg-off-white rounded-md dark:bg-black-2 transition-colors duration-1000">
+    <div className="flex items-center justify-center bg-off-white rounded-md dark:bg-black-2">
       <div className="flex justify-center items-center gap-6 py-3.5">
         <img src="/assets/icon-light-theme.svg" alt="Light theme icon." />
         <div
