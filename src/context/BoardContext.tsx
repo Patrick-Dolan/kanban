@@ -1,27 +1,6 @@
 import { ReactNode, createContext, useContext, useState } from 'react';
+import { Board } from '../interfaces';
 import data from '../data.json';
-
-interface Subtask {
-  title: string;
-  isCompleted: boolean;
-}
-
-interface Task {
-  title: string;
-  description: string;
-  status: string;
-  subtasks: Subtask[];
-}
-
-interface Column {
-  name: string;
-  tasks: Task[];
-}
-
-interface Board {
-  name: string;
-  columns: Column[];
-}
 
 interface BoardContextType {
   boards: Board[];
