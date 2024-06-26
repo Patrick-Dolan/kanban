@@ -7,7 +7,7 @@ function App() {
       <header>
         <MobileHeader />
       </header>
-      <main className="flex-grow bg-off-white dark:bg-black-2">
+      <main className="flex flex-grow bg-off-white dark:bg-black-2">
         <KanBanBoard />
       </main>
     </div>
