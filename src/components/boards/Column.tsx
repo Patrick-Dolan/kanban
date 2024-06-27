@@ -1,6 +1,6 @@
 import type { Column } from '../../interfaces';
 import Heading from '../shared/typography/Heading';
-import Task from './Task';
+import TaskCard from './tasks/TaskCard';
 
 function Column({ column }: { column: Column }) {
   // TODO set up dynamic colors for columns header
@@ -12,7 +12,7 @@ function Column({ column }: { column: Column }) {
       </div>
       <div className="pt-6">
         {column.tasks.map((task, index) => (
-          <Task key={task.title + index} task={task} />
+          <TaskCard key={task.title + index} task={task} />
         ))}
       </div>
     </div>
